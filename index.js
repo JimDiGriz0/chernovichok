@@ -1123,16 +1123,193 @@ import crc32 from 'crc-32';
 // console.log(sum(values)); // передаёт 1, 2, 3 как аргументы
 
 // console.log(new Date(2013, 1, 12));
-const arr1 = ['Sat Apr 24 1993', 'Fri Sep 12 1997', 'Sun Nov 18 2001'];
+// const arr1 = ['Sat Apr 24 1993', 'Fri Sep 12 1997', 'Sun Nov 18 2001'];
 
-const convert = (dates) => {
-  const result = [];
-  for (const date of dates) {
-    result.push(new Date(date).toDateString());
-  }
-  console.log(result);
-  return result;
-};
+// const convert = (dates) => {
+//   const result = [];
+//   for (const date of dates) {
+//     result.push(new Date(date).toDateString());
+//   }
+//   console.log(result);
+//   return result;
+// };
 
-convert(arr1);
-// console.log(new Date('Sat Apr 24 1993').toDateString());
+// const x = convert(arr1);
+// // console.log(new Date('Sat Apr 24 1993').toDateString());
+// const d = ['one', 'two', 'three'];
+// const [one, ...rest] = d;
+// console.log(' one:', one);
+// console.log(rest);
+
+// const users = [
+//   { name: 'Igor', age: 19 },
+//   { name: 'Danil', age: 1 },
+//   { name: 'Vovan', age: 4 },
+//   { name: 'Matvey', age: 16 },
+// ];
+
+// const result = [];
+// const ages = [];
+// for (const { name, age } of users) {
+//   result.push(name);
+//   ages.push(age);
+// }
+// console.log(result);
+// console.log(ages);
+
+// const users = [
+//   {
+//     name: 'Tirion',
+//     children: [{ name: 'Mira', birthday: '1983-03-23' }],
+//   },
+//   { name: 'Bronn', children: [] },
+//   {
+//     name: 'Sam',
+//     children: [
+//       { name: 'Aria', birthday: '2012-11-03' },
+//       { name: 'Keit', birthday: '1933-05-14' },
+//     ],
+//   },
+//   {
+//     name: 'Rob',
+//     children: [{ name: 'Tisha', birthday: '2012-11-03' }],
+//   },
+// ];
+
+// const getChildren = (coll) => {
+//   const result = [];
+//   for (const item of coll) {
+//     if (item.children && item.children.length > 0) {
+//       result.push(item);
+//     }
+//   }
+//   return result;
+// };
+
+// const test = users.map((item) => item['children'].flat(2));
+// const test = users[0].children.flat(2);
+// console.log(test);
+
+// const getChildren = (coll) => {
+//   const result = [];
+
+//   for (const user of coll) {
+//     if (user.children && user.children.length > 0) {
+//       result.push(...user.children);
+//     }
+//   }
+
+//   return result;
+// };
+
+// const test = [...users.children];
+
+// console.log(test);
+
+// console.log(getChildren(users));
+
+// const sum = (...nums) => {
+//   const result = 0;
+//   for (const num of nums) {
+//     result += num;
+//   }
+//   return result;
+// };
+
+// const getChildren = (users) => {
+//   const childrenOfUsers = users.map(({ children }) => children);
+//   console.log(' getChildren childrenOfUsers:', childrenOfUsers.flat());
+//   return childrenOfUsers.flat();
+// };
+
+// const users = [
+//   {
+//     name: 'Tirion',
+//     children: [{ name: 'Mira', birthday: '1983-03-23' }],
+//   },
+//   { name: 'Bronn', children: [] },
+//   {
+//     name: 'Sam',
+//     children: [
+//       { name: 'Aria', birthday: '2012-11-03' },
+//       { name: 'Keit', birthday: '1933-05-14' },
+//     ],
+//   },
+//   {
+//     name: 'Rob',
+//     children: [{ name: 'Tisha', birthday: '2012-11-03' }],
+//   },
+// ];
+
+// getChildren(users);
+
+// const books = [
+//   { title: 'The Hobbit', author: 'Tolkien', genres: ['Fantasy', 'Adventure'] },
+//   { title: '1984', author: 'Orwell', genres: ['Dystopia', 'Science Fiction'] },
+//   {
+//     title: 'Clean Code',
+//     author: 'Robert C. Martin',
+//     genres: ['Programming', 'Best Practices'],
+//   },
+// ];
+
+// const getAllGenres = (arr) => {
+//   const allGenres = arr.map(({ genres }) => genres);
+//   console.log(allGenres.flat());
+// };
+
+// getAllGenres(books);
+
+// function sum(a, b, ...rest) {
+//   console.log(a, b);
+//   console.log(rest);
+// }
+
+// sum(1, 2, 3, 4, 5, 6);
+
+// function multiply(first, ...rest) {
+//   let result = first;
+//   for (const num of rest) {
+//     result *= num;
+//   }
+//   console.log(' multiply result:', result);
+//   return result;
+// }
+
+// multiply(2, 3, 4); // Должно вернуть 2 * 3 * 4 = 24
+// multiply(5, 2);
+
+// const user = { name: 'Alex' };
+// const details = { age: 25, job: 'Developer' };
+
+// // Должно получиться { name: "Alex", age: 25, job: "Developer" }
+
+// const allInOne = { ...user, ...details };
+
+// console.log(' allInOne:', allInOne);
+
+// Дан массив ["HTML", "CSS", "JavaScript", "React"].
+// Извлеки первые два элемента, а остальные собери в массив other.
+
+// const [first, second, ...other] = ['HTML', 'CSS', 'JavaScript', 'React'];
+// console.log(first, second, other);
+
+// const fruits = ['apple', 'banana'];
+
+// const newFruits = [...fruits];
+// console.log(' newFruits:', newFruits);
+// fruits[0] = 'pear';
+// console.log(' fruits:', fruits);
+// console.log(' newFruits:', newFruits);
+
+// const books = [
+//   { title: 'The Hobbit', pages: 310 },
+//   { title: '1984', pages: 328 },
+//   { title: 'Dune', pages: 412 },
+// ];
+
+// const titles = books.map((book) => ` ${book.title} pages: ${book.pages}`);
+
+// console.log(' titles:', titles);
+
+const getGirlFriends = (users) => {};
