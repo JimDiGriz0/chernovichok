@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import crc32 from 'crc-32';
+import fs from 'node:fs';
+import path from 'node:path';
 
 // console.log("hello");
 // const join = (first, second, connector = "") => `${first}${connector}${second}`;
@@ -1312,4 +1314,129 @@ import crc32 from 'crc-32';
 
 // console.log(' titles:', titles);
 
-const getGirlFriends = (users) => {};
+// const users = [
+//   {
+//     name: 'Tirion',
+//     friends: [
+//       { name: 'Mira', gender: 'female' },
+//       { name: 'Ramsey', gender: 'male' },
+//     ],
+//   },
+//   { name: 'Bronn', friends: [] },
+//   {
+//     name: 'Sam',
+//     friends: [
+//       { name: 'Aria', gender: 'female' },
+//       { name: 'Keit', gender: 'female' },
+//     ],
+//   },
+//   {
+//     name: 'Rob',
+//     friends: [{ name: 'Taywin', gender: 'male' }],
+//   },
+// ];
+
+// const getGirlFriends = (users) => {
+//   const friends = users.map(({ friends }) => friends).flat();
+//   return friends.filter(({ gender }) => gender === 'female');
+// };
+
+// getGirlFriends(users);
+
+// const x = {};
+// x.age = 1;
+// console.log(x);
+
+// const courses = [
+//   {
+//     name: 'Arrays',
+//     lessons: [{ name: 'One' }, { name: 'Two' }],
+//   },
+//   {
+//     name: 'Objects',
+//     lessons: [{ name: 'Lala' }, { name: 'One' }, { name: 'Two' }],
+//   },
+// ];
+
+// const students = [
+//   { name: 'Tirion', class: 'B', mark: 3 },
+//   { name: 'Keit', class: 'A', mark: 3 },
+//   { name: 'Ramsey', class: 'A', mark: 4 },
+// ];
+
+// const cb = (acc, student) => {
+//   if (!Object.hasOwn(acc, student.group)) {
+//     acc[student.group] = [];
+//   }
+//   acc[student.group].push(student);
+//   return acc;
+// };
+
+// const groupBy = (students, group) => {
+//   const result = students.reduce(cb, {});
+//   console.log(' groupBy result:', result);
+//   return result;
+// };
+
+// const groupBy = (students, key) => {
+//   const result = students.reduce((acc, student) => {
+//     const groupName = student[key];
+//     if (!Object.hasOwn(acc, groupName)) {
+//       acc[groupName] = [];
+//     }
+//     acc[groupName].push(student);
+//     return acc;
+//   }, {});
+
+//   console.log(' groupBy result:', result);
+//   return result;
+// };
+
+// groupBy(students, 'mark');
+
+// const groupBy = students.reduce((acc, student) => {
+//   if (!Object.hasOwn(acc, student.mark)) {
+//     acc[student.mark] = [];
+//   }
+//   acc[student.mark].push(student.mark);
+//   console.log('acc:', acc);
+//   return acc;
+// }, {});
+
+// const test = students.reduce(cb, {});
+// console.log(test);
+
+// const numbers = [1, 2, 3, 4, 5];
+
+// const numbersMulty = numbers.map((number) => number * 2);
+// console.log(' numbersMulty:', numbersMulty);
+
+// const books = [
+//   { title: '1984', author: 'George Orwell' },
+//   { title: 'Dune', author: 'Frank Herbert' },
+//   { title: 'The Hobbit', author: 'J.R.R. Tolkien' },
+// ];
+
+// const newBooks = books.map((book) => {
+//   return { ...book, isRead: true };
+// });
+// console.log(' newBooks:', newBooks);
+
+const getJsFileNames = (paths) =>
+  paths
+    // отбираем реально существующие файлы
+    .filter((filepath) => fs.existsSync(filepath))
+    // отбор по типу файла
+    .filter((filepath) => fs.lstatSync(filepath).isFile())
+    // отбор по расширению
+    .filter((filepath) => path.extname(filepath).toLowerCase() === '.js')
+    // отображаем в имена (нам нужен массив с именами)
+    .map((filepath) => path.basename(filepath.toLowerCase(), '.js'));
+
+const names = getJsFileNames([
+  'index.js',
+  'wop.JS',
+  'nonexists',
+  'node_modules',
+]);
+console.log(names); // => [index, wop]
