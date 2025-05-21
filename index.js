@@ -1422,21 +1422,42 @@ import path from 'node:path';
 // });
 // console.log(' newBooks:', newBooks);
 
-const getJsFileNames = (paths) =>
-  paths
-    // отбираем реально существующие файлы
-    .filter((filepath) => fs.existsSync(filepath))
-    // отбор по типу файла
-    .filter((filepath) => fs.lstatSync(filepath).isFile())
-    // отбор по расширению
-    .filter((filepath) => path.extname(filepath).toLowerCase() === '.js')
-    // отображаем в имена (нам нужен массив с именами)
-    .map((filepath) => path.basename(filepath.toLowerCase(), '.js'));
+// const getJsFileNames = (paths) =>
+//   paths
+//     // отбираем реально существующие файлы
+//     .filter((filepath) => fs.existsSync(filepath))
+//     // отбор по типу файла
+//     .filter((filepath) => fs.lstatSync(filepath).isFile())
+//     // отбор по расширению
+//     .filter((filepath) => path.extname(filepath).toLowerCase() === '.js')
+//     // отображаем в имена (нам нужен массив с именами)
+//     .map((filepath) => path.basename(filepath.toLowerCase(), '.js'));
 
-const names = getJsFileNames([
-  'index.js',
-  'wop.JS',
-  'nonexists',
-  'node_modules',
-]);
-console.log(names); // => [index, wop]
+// const names = getJsFileNames([
+//   'index.js',
+//   'wop.JS',
+//   'nonexists',
+//   'node_modules',
+// ]);
+// console.log(names); // => [index, wop]
+
+// const numbers = [10, 20, 52, 105, 56, 89, 96];
+
+// const max = numbers.reduce(
+//   (acc, number) => (number > acc ? number : acc),
+//   numbers[0]
+// );
+
+// console.log(max);
+
+const sequenceSum = (begin, end) => {
+  // BEGIN (write your solution here)
+  if (end === begin) {
+    return end;
+  }
+  return end + sequenceSum(begin, end - 1);
+  // END
+};
+
+console.log(sequenceSum(-1, -1));
+export default sequenceSum;
