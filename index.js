@@ -1496,13 +1496,48 @@ import path from 'node:path';
 
 // console.log(smallestDivisor(17));
 
-const x = [-1, 0, 1, -3, 10, -2];
+// const x = [-1, 0, 1, -3, 10, -2];
 
-const sameParity = (arr) => {
-  const parity = Math.abs(arr[0] % 2);
-  const result = arr.filter((num) => Math.abs(num % 2) === parity);
-  console.log(result);
+// const sameParity = (arr) => {
+//   const parity = Math.abs(arr[0] % 2);
+//   const result = arr.filter((num) => Math.abs(num % 2) === parity);
+//   console.log(result);
+//   return result;
+// };
+
+// sameParity(x);
+
+// const teamA_users = [101, 105, 103];
+// const teamB_users = [105, 102, 106];
+// const teamC_users = [101, 107];
+
+// // Используй оператор spread для объединения массивов, а затем метод Set
+// // или lodash's _.union для получения уникальных значений.
+// // Твой код здесь:
+// const allUniqueUsers = _.union(teamA_users, teamB_users, teamC_users); // ... твой код ...
+// const allUniqueUsers2 = [...teamA_users, ...teamB_users, ...teamC_users];
+// const allUniqueUsersSet = new Set(allUniqueUsers2);
+// const allUniqueUsers3 = [...allUniqueUsersSet];
+// console.log(' allUniqueUsers3:', allUniqueUsers3);
+// console.log(' allUniqueUsersSet:', allUniqueUsersSet);
+// console.log(' allUniqueUsers2:', allUniqueUsers2);
+
+// console.log(allUniqueUsers); // Ожидаемый вывод: [101, 105, 103, 102, 106, 107] (порядок может отличаться)
+
+const merge = (...objects) => {
+  const result = {};
+
+  for (const obj of objects) {
+    for (const [key, value] of Object.entries(obj)) {
+      if (!Object.hasOwn(result, key)) {
+        result[key] = [value];
+      } else {
+        if (!result[key].includes(value)) {
+          result[key].push(value);
+        }
+      }
+    }
+  }
+
   return result;
 };
-
-sameParity(x);
