@@ -1450,14 +1450,59 @@ import path from 'node:path';
 
 // console.log(max);
 
-const sequenceSum = (begin, end) => {
-  // BEGIN (write your solution here)
-  if (end === begin) {
-    return end;
-  }
-  return end + sequenceSum(begin, end - 1);
-  // END
+// const sequenceSum = (begin, end) => {
+//   // BEGIN (write your solution here)
+//   if (end === begin) {
+//     return end;
+//   }
+//   return end + sequenceSum(begin, end - 1);
+//   // END
+// };
+
+// console.log(sequenceSum(-1, -1));
+// export default sequenceSum;
+
+// const factorial = (n) => {
+//   if (n === 0) {
+//     return 1;
+//   }
+
+//   const iter = (counter, acc) => {
+//     if (counter === 1) {
+
+//       return acc;
+//     }
+//     return iter(counter - 1, counter * acc);
+//   };
+
+//   return iter(n, 1);
+// };
+
+// console.log(factorial(5));
+
+// const smallestDivisor = (number) => {
+//   if (number === 1) {
+//     return 1;
+//   }
+
+//   const iter = (number, divisor) => {
+//     if (number % divisor === 0) {
+//       return divisor;
+//     }
+//     return iter(number, divisor + 1);
+//   };
+//   return iter(number, 2);
+// };
+
+// console.log(smallestDivisor(17));
+
+const x = [-1, 0, 1, -3, 10, -2];
+
+const sameParity = (arr) => {
+  const parity = Math.abs(arr[0] % 2);
+  const result = arr.filter((num) => Math.abs(num % 2) === parity);
+  console.log(result);
+  return result;
 };
 
-console.log(sequenceSum(-1, -1));
-export default sequenceSum;
+sameParity(x);
