@@ -1524,20 +1524,79 @@ import path from 'node:path';
 
 // console.log(allUniqueUsers); // Ожидаемый вывод: [101, 105, 103, 102, 106, 107] (порядок может отличаться)
 
-const merge = (...objects) => {
-  const result = {};
+// const merge = (...objects) => {
+//   const result = {};
 
-  for (const obj of objects) {
-    for (const [key, value] of Object.entries(obj)) {
-      if (!Object.hasOwn(result, key)) {
-        result[key] = [value];
-      } else {
-        if (!result[key].includes(value)) {
-          result[key].push(value);
-        }
-      }
-    }
-  }
+//   for (const obj of objects) {
+//     for (const [key, value] of Object.entries(obj)) {
+//       if (!Object.hasOwn(result, key)) {
+//         result[key] = [value];
+//       } else {
+//         if (!result[key].includes(value)) {
+//           result[key].push(value);
+//         }
+//       }
+//     }
+//   }
 
-  return result;
-};
+//   return result;
+// };
+
+// const users = [
+//   { name: 'Bronn', gender: 'male', birthday: '1973-03-23' },
+//   { name: 'Reigar', gender: 'male', birthday: '1973-11-03' },
+//   { name: 'Eiegon', gender: 'male', birthday: '1963-11-03' },
+//   { name: 'Sansa', gender: 'female', birthday: '2012-11-03' },
+//   { name: 'Jon', gender: 'male', birthday: '1980-11-03' },
+//   { name: 'Robb', gender: 'male', birthday: '1980-05-14' },
+//   { name: 'Tisha', gender: 'female', birthday: '2012-11-03' },
+//   { name: 'Rick', gender: 'male', birthday: '2012-11-03' },
+//   { name: 'Joffrey', gender: 'male', birthday: '1999-11-03' },
+//   { name: 'Edd', gender: 'male', birthday: '1973-11-03' },
+// ];
+
+// const getMenCountByYear = (arr) => {
+//   const result = {};
+//   for (const person of arr) {
+//     if (person['gender'] === 'male') {
+//       const personsBirth = person['birthday'].slice(0, 4);
+//       if (Object.hasOwn(result, personsBirth)) {
+//         result[personsBirth] = (result[personsBirth] ?? 0) + 1;
+//       } else {
+//         result[personsBirth] = 1;
+//       }
+//     }
+//   }
+//   return result;
+// };
+// getMenCountByYear(users);
+
+// const numbers = [3, -5, 7, 0, -2, 10];
+
+// // 3 + 7 + 10 = 20
+
+// const answer = numbers.reduce((acc, currentValue) => {
+//   if (currentValue > 0) {
+//     acc += currentValue;
+//   }
+//   return acc;
+// }, 0);
+// console.log(' answer:', answer);
+
+// const users = [
+//   { name: 'Jon' },
+//   { name: 'Daenerys' },
+//   { name: 'Arya' },
+//   { name: 'Targaryen' },
+//   { name: 'Sansa' },
+// ];
+
+// const answer = users.reduce(
+//   (acc, element) => {
+//     console.log(1, acc.name);
+//     return acc.name.length < element.name.length ? element : acc;
+//   },
+//   { name: '' }
+// );
+
+// console.log(' answer:', answer);
