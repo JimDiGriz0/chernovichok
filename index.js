@@ -1600,3 +1600,13 @@ import path from 'node:path';
 // );
 
 // console.log(' answer:', answer);
+
+const words = ['apple', 'banana', 'avocado', 'cherry', 'apricot', 'blueberry'];
+const answer = words.reduce((acc, currentElement) => {
+  if (Object.hasOwn(acc, currentElement[0])) {
+    acc[currentElement[0]].push(currentElement);
+  } else acc[currentElement[0]] = [currentElement];
+  return acc;
+}, {});
+
+console.log(answer);
